@@ -1,0 +1,32 @@
+body {
+    --backgrond-color: black;
+    --text-color: white;
+    margin: 0px;
+    background-color: var(--backgrond-color);
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 70vw;
+    height: 100vh;
+    background-color: var(--backgrond-color);
+    color: var(--text-color);
+    padding: 2vh 5vw;
+    border: 0.5px solid gray;
+}
+
+
+
+#title {
+    text-align: center;
+    font-size: 2rem;
+}
+
+#title h1, #title h3 {
+    margin: 0;
+}
