@@ -20,6 +20,8 @@ export default function Index() {
                 <br /><br />
                 Questo progetto rappresenta un esempio concreto di come l’intelligenza artificiale possa essere applicata al mondo naturale, supportando biologi, studenti e appassionati nella scoperta e nello studio della biodiversità.
             </p>
+
+            <img src="/public/grafico.png" alt="grafico" />
         </main>
     )
 }

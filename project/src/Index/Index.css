@@ -14,7 +14,7 @@ body {
 
 main {
     width: 70vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--backgrond-color); /* sfondo nero con opacità, non influenza i figli */
     color: var(--text-color);
     padding: 2vh 5vw;
