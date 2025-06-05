@@ -1,8 +1,9 @@
 body {
-    --backgrond-color: black;
+    --backgrond-color: rgba(0, 0, 0, 0.8);
     --text-color: white;
     margin: 0px;
     background-color: var(--backgrond-color);
+    background-image: url('../../public/sfondo.gif');
 }
 
 #root {
@@ -14,19 +15,36 @@ body {
 main {
     width: 70vw;
     height: 100vh;
-    background-color: var(--backgrond-color);
+    background-color: var(--backgrond-color); /* sfondo nero con opacità, non influenza i figli */
     color: var(--text-color);
     padding: 2vh 5vw;
-    border: 0.5px solid gray;
+    border: 1px solid rgba(255,255,255,0.07);
 }
 
 
+header {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+header img {
+    width: 55px;
+    height: 55px;
+    background-color: white;
+    border-radius: 100%;
+}
 
 #title {
     text-align: center;
     font-size: 2rem;
+    margin: 10vh;
 }
 
 #title h1, #title h3 {
     margin: 0;
 }
+
+ #title h3 {
+    margin: 0px;
+    font: 20px;
+    color: gray;
+ }
