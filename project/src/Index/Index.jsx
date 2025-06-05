@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Index.css";
 import { ResponsiveBar } from '@nivo/bar';
+import ModelPage from './ModelPage.jsx';
 
 export default function Index() {
+    const [showModelPage, setShowModelPage] = useState(false);
+    if (showModelPage) return <ModelPage onBack={() => setShowModelPage(false)} />;
+
     return (
         <main>
             <header>
                 <img src="/src/assets/logo.png" alt="logo" />
+                <button style={{marginLeft: '2rem', padding: '0.5rem 1.2rem', borderRadius: '8px', border: 'none', background: '#4fc3f7', color: '#222', fontWeight: 600, cursor: 'pointer', fontSize: '1rem'}} onClick={() => setShowModelPage(true)}>
+                    Codice Modello
+                </button>
             </header>
 
             <div id="title">
