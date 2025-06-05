@@ -1,15 +1,27 @@
-from keras.models import load_model  # TensorFlow is required for Keras to work
+from keras.layers import DepthwiseConv2D as BaseDepthwiseConv2D
+from keras.models import load_model # TensorFlow is required for Keras to work
 from PIL import Image, ImageOps  # Install pillow instead of PIL
 import numpy as np
 
 # Disable scientific notation for clarity
 np.set_printoptions(suppress=True)
 
+
+
+# Definisci una classe che ignora il parametro 'groups'
+class CustomDepthwiseConv2D(BaseDepthwiseConv2D):
+    def __init__(self, **kwargs):
+        if 'groups' in kwargs:
+            kwargs.pop('groups')  # elimina il parametro obsoleto
+        super().__init__(**kwargs)
+
+# Carica il modello passando la classe personalizzata
+custom_objects = {'DepthwiseConv2D': CustomDepthwiseConv2D}
 # Load the model
-model = load_model("keras_Model.h5", compile=False)
+model = load_model("modello/keras_model.h5", custom_objects=custom_objects, compile=False)
 
 # Load the labels
-class_names = open("labels.txt", "r").readlines()
+class_names = open("modello/labels.txt", "r").readlines()
 
 # Create the array of the right shape to feed into the keras model
 # The 'length' or number of images you can put into the array is
@@ -17,7 +29,7 @@ class_names = open("labels.txt", "r").readlines()
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 # Replace this with the path to your image
-image = Image.open("train_set").convert("RGB")
+image = Image.open("modello/validation_set/gallina (1).jpeg").convert("RGB")
 
 # resizing the image to be at least 224x224 and then cropping from the center
 size = (224, 224)
